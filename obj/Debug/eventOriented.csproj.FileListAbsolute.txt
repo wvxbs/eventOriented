@@ -1,0 +1,10 @@
+C:\Users\GabrielFerreira\Documents\repos\eventOriented\eventOriented\bin\Debug\eventOriented.exe.config
+C:\Users\GabrielFerreira\Documents\repos\eventOriented\eventOriented\bin\Debug\eventOriented.exe
+C:\Users\GabrielFerreira\Documents\repos\eventOriented\eventOriented\bin\Debug\eventOriented.pdb
+C:\Users\GabrielFerreira\Documents\repos\eventOriented\eventOriented\obj\Debug\eventOriented.csprojAssemblyReference.cache
+C:\Users\GabrielFerreira\Documents\repos\eventOriented\eventOriented\obj\Debug\eventOriented.Form1.resources
+C:\Users\GabrielFerreira\Documents\repos\eventOriented\eventOriented\obj\Debug\eventOriented.Properties.Resources.resources
+C:\Users\GabrielFerreira\Documents\repos\eventOriented\eventOriented\obj\Debug\eventOriented.csproj.GenerateResource.cache
+C:\Users\GabrielFerreira\Documents\repos\eventOriented\eventOriented\obj\Debug\eventOriented.csproj.CoreCompileInputs.cache
+C:\Users\GabrielFerreira\Documents\repos\eventOriented\eventOriented\obj\Debug\eventOriented.exe
+C:\Users\GabrielFerreira\Documents\repos\eventOriented\eventOriented\obj\Debug\eventOriented.pdb
