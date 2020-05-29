@@ -42,6 +42,30 @@
             this.button3 = new System.Windows.Forms.Button();
             this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lbFileName = new System.Windows.Forms.Label();
+            this.btnAnalisar = new System.Windows.Forms.Button();
+            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LetterLabel = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.NumLabel = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.SpacesLabel = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.LinesLabel = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CharLabel = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.WordsLabel = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ThreeLettersWordsLabel = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -63,23 +87,19 @@
             this.btnLimpar = new System.Windows.Forms.Button();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.NumTextBox = new System.Windows.Forms.TextBox();
-            this.lbFileName = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.BiggestWordLabel = new System.Windows.Forms.TextBox();
             this.tabPage4.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.panel4.SuspendLayout();
             this.flowLayoutPanel11.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.flowLayoutPanel7.SuspendLayout();
+            this.flowLayoutPanel8.SuspendLayout();
+            this.flowLayoutPanel9.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,12 +109,7 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
-            this.flowLayoutPanel8.SuspendLayout();
-            this.flowLayoutPanel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // backgroundWorker2
@@ -182,6 +197,168 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // flowLayoutPanel3
+            // 
+            resources.ApplyResources(this.flowLayoutPanel3, "flowLayoutPanel3");
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.flowLayoutPanel3.Controls.Add(this.panel2);
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel7);
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel8);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label3);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // flowLayoutPanel7
+            // 
+            this.flowLayoutPanel7.Controls.Add(this.button1);
+            this.flowLayoutPanel7.Controls.Add(this.lbFileName);
+            this.flowLayoutPanel7.Controls.Add(this.btnAnalisar);
+            resources.ApplyResources(this.flowLayoutPanel7, "flowLayoutPanel7");
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.InvokeTextFIle);
+            // 
+            // lbFileName
+            // 
+            resources.ApplyResources(this.lbFileName, "lbFileName");
+            this.lbFileName.Name = "lbFileName";
+            this.lbFileName.Click += new System.EventHandler(this.lbFileName_Click);
+            // 
+            // btnAnalisar
+            // 
+            this.btnAnalisar.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.btnAnalisar, "btnAnalisar");
+            this.btnAnalisar.Name = "btnAnalisar";
+            this.btnAnalisar.UseVisualStyleBackColor = false;
+            this.btnAnalisar.Click += new System.EventHandler(this.ProcessFileData);
+            // 
+            // flowLayoutPanel8
+            // 
+            this.flowLayoutPanel8.Controls.Add(this.label5);
+            this.flowLayoutPanel8.Controls.Add(this.flowLayoutPanel9);
+            resources.ApplyResources(this.flowLayoutPanel8, "flowLayoutPanel8");
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            this.label5.Click += new System.EventHandler(this.label5_Click_3);
+            // 
+            // flowLayoutPanel9
+            // 
+            this.flowLayoutPanel9.Controls.Add(this.label6);
+            this.flowLayoutPanel9.Controls.Add(this.LetterLabel);
+            this.flowLayoutPanel9.Controls.Add(this.label8);
+            this.flowLayoutPanel9.Controls.Add(this.NumLabel);
+            this.flowLayoutPanel9.Controls.Add(this.label9);
+            this.flowLayoutPanel9.Controls.Add(this.SpacesLabel);
+            this.flowLayoutPanel9.Controls.Add(this.label10);
+            this.flowLayoutPanel9.Controls.Add(this.LinesLabel);
+            this.flowLayoutPanel9.Controls.Add(this.label11);
+            this.flowLayoutPanel9.Controls.Add(this.CharLabel);
+            this.flowLayoutPanel9.Controls.Add(this.label12);
+            this.flowLayoutPanel9.Controls.Add(this.WordsLabel);
+            this.flowLayoutPanel9.Controls.Add(this.label13);
+            this.flowLayoutPanel9.Controls.Add(this.ThreeLettersWordsLabel);
+            this.flowLayoutPanel9.Controls.Add(this.label14);
+            this.flowLayoutPanel9.Controls.Add(this.BiggestWordLabel);
+            resources.ApplyResources(this.flowLayoutPanel9, "flowLayoutPanel9");
+            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label6.Name = "label6";
+            // 
+            // LetterLabel
+            // 
+            resources.ApplyResources(this.LetterLabel, "LetterLabel");
+            this.LetterLabel.Name = "LetterLabel";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label8.Name = "label8";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // NumLabel
+            // 
+            resources.ApplyResources(this.NumLabel, "NumLabel");
+            this.NumLabel.Name = "NumLabel";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label9.Name = "label9";
+            // 
+            // SpacesLabel
+            // 
+            resources.ApplyResources(this.SpacesLabel, "SpacesLabel");
+            this.SpacesLabel.Name = "SpacesLabel";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label10.Name = "label10";
+            // 
+            // LinesLabel
+            // 
+            resources.ApplyResources(this.LinesLabel, "LinesLabel");
+            this.LinesLabel.Name = "LinesLabel";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label11.Name = "label11";
+            // 
+            // CharLabel
+            // 
+            resources.ApplyResources(this.CharLabel, "CharLabel");
+            this.CharLabel.Name = "CharLabel";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label12.Name = "label12";
+            // 
+            // WordsLabel
+            // 
+            resources.ApplyResources(this.WordsLabel, "WordsLabel");
+            this.WordsLabel.Name = "WordsLabel";
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label13.Name = "label13";
+            // 
+            // ThreeLettersWordsLabel
+            // 
+            resources.ApplyResources(this.ThreeLettersWordsLabel, "ThreeLettersWordsLabel");
+            this.ThreeLettersWordsLabel.Name = "ThreeLettersWordsLabel";
             // 
             // tabPage2
             // 
@@ -345,80 +522,21 @@
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
-            // flowLayoutPanel3
-            // 
-            resources.ApplyResources(this.flowLayoutPanel3, "flowLayoutPanel3");
-            this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.flowLayoutPanel3.Controls.Add(this.panel2);
-            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel7);
-            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel8);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label3);
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // flowLayoutPanel7
-            // 
-            this.flowLayoutPanel7.Controls.Add(this.button1);
-            this.flowLayoutPanel7.Controls.Add(this.lbFileName);
-            resources.ApplyResources(this.flowLayoutPanel7, "flowLayoutPanel7");
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // fileSystemWatcher1
             // 
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // flowLayoutPanel8
+            // label14
             // 
-            this.flowLayoutPanel8.Controls.Add(this.label5);
-            this.flowLayoutPanel8.Controls.Add(this.flowLayoutPanel9);
-            resources.ApplyResources(this.flowLayoutPanel8, "flowLayoutPanel8");
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label14.Name = "label14";
             // 
-            // label5
+            // BiggestWordLabel
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            this.label5.Click += new System.EventHandler(this.label5_Click_3);
-            // 
-            // flowLayoutPanel9
-            // 
-            this.flowLayoutPanel9.Controls.Add(this.label6);
-            this.flowLayoutPanel9.Controls.Add(this.NumTextBox);
-            resources.ApplyResources(this.flowLayoutPanel9, "flowLayoutPanel9");
-            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label6.Name = "label6";
-            // 
-            // NumTextBox
-            // 
-            resources.ApplyResources(this.NumTextBox, "NumTextBox");
-            this.NumTextBox.Name = "NumTextBox";
-            // 
-            // lbFileName
-            // 
-            resources.ApplyResources(this.lbFileName, "lbFileName");
-            this.lbFileName.Name = "lbFileName";
+            resources.ApplyResources(this.BiggestWordLabel, "BiggestWordLabel");
+            this.BiggestWordLabel.Name = "BiggestWordLabel";
             // 
             // Form1
             // 
@@ -426,6 +544,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tabControl1);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabPage4.ResumeLayout(false);
@@ -435,6 +554,15 @@
             this.flowLayoutPanel11.ResumeLayout(false);
             this.flowLayoutPanel11.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.flowLayoutPanel7.ResumeLayout(false);
+            this.flowLayoutPanel7.PerformLayout();
+            this.flowLayoutPanel8.ResumeLayout(false);
+            this.flowLayoutPanel8.PerformLayout();
+            this.flowLayoutPanel9.ResumeLayout(false);
+            this.flowLayoutPanel9.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -448,16 +576,7 @@
             this.panel1.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.flowLayoutPanel7.ResumeLayout(false);
-            this.flowLayoutPanel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
-            this.flowLayoutPanel8.ResumeLayout(false);
-            this.flowLayoutPanel8.PerformLayout();
-            this.flowLayoutPanel9.ResumeLayout(false);
-            this.flowLayoutPanel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -505,10 +624,25 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbFileName;
+        private System.Windows.Forms.Button btnAnalisar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox NumTextBox;
-        private System.Windows.Forms.Label lbFileName;
+        private System.Windows.Forms.TextBox LetterLabel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox NumLabel;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox SpacesLabel;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox LinesLabel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox CharLabel;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox WordsLabel;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox ThreeLettersWordsLabel;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox BiggestWordLabel;
     }
 }
 

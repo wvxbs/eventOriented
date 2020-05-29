@@ -10,6 +10,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace eventOriented
 {
@@ -111,89 +114,35 @@ namespace eventOriented
 
         //ex2
 
-        private void TarefaLonga(int p)
-        {
-            for (int i = 0; i <= 10; i++)
-            {
-                // faz a thread dormir por "p" milissegundos a cada passagem do loop
-                //Thread.Sleep(p);
-                lblProgresso.Text = "Tarefa: " + i.ToString() + " comcluída";
-            }
-        }
-
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            for (int i = 0; i < 100; i++)//representa uma tarefa com 100 processos.
-            {
-                //Executa o método longo 100 vezes.
-                TarefaLonga(20);
-                //incrementa o progresso do backgroundWorker 
-                //a cada passagem do loop.
-                this.backgroundWorker1.ReportProgress(i);
-
-                //Verifica se houve uma requisição para cancelar a operação.
-                if (backgroundWorker1.CancellationPending)
+                for (int i = 0; i <= 100; i++)
                 {
-                    //se sim, define a propriedade Cancel para true
-                    //para que o evento WorkerCompleted saiba que a tarefa foi cancelada.
-                    e.Cancel = true;
-
-                    //zera o percentual de progresso do backgroundWorker1.
-                    backgroundWorker1.ReportProgress(0);
-                    return;
+                    if (!backgroundWorker1.CancellationPending)
+                    {
+                        Thread.Sleep(100);
+                        backgroundWorker1.ReportProgress(i);
+                    }
+                    else
+                    {
+                        backgroundWorker1.ReportProgress(0);
+                        break;
+                    }
                 }
-            }
-            //Finalmente, caso tudo esteja ok, finaliza
-            //o progresso em 100%.
-            backgroundWorker1.ReportProgress(100);
         }
 
-        /// <summary>
-        /// Aqui implementamos o que desejamos fazer enquanto o progresso
-        /// da tarefa é modificado,[incrementado].
-        /// </summary>
-        private void backgroundWorker1_ProgressChanged(object sender,
-        ProgressChangedEventArgs e)
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            //Incrementa o valor da progressbar com o valor
-            //atual do progresso da tarefa.
             pgProgresso.Value = e.ProgressPercentage;
-
-            //informa o percentual na forma de texto.
-            label1.Text = e.ProgressPercentage.ToString() + "%";
+            lblProgresso.Text = $"{e.ProgressPercentage.ToString()}%";
         }
 
-        /// <summary>
-        /// Após a tarefa ser concluida, esse metodo e chamado para
-        /// implementar o que deve ser feito imediatamente após a conclusão da tarefa.
-        /// </summary>
-        private void backgroundWorker1_RunWorkerCompleted(object sender,
-        RunWorkerCompletedEventArgs e)
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (e.Cancelled)
-            {
-                //caso a operação seja cancelada, informa ao usuario.
-                label2.Text = "Operação Cancelada pelo Usuário!";
 
-                //habilita o Botao cancelar
-                btnCancelar.Enabled = true;
-                //limpa a label
-                label1.Text = string.Empty;
-            }
-            else if (e.Error != null)
-            {
-                //informa ao usuario do acontecimento de algum erro.
-                label2.Text = "Aconteceu um erro durante a execução do processo!";
-            }
-            else
-            {
-                //informa que a tarefa foi concluida com sucesso.
-                label2.Text = "Tarefa Concluida com sucesso!";
-            }
-            //habilita os botões.
-            //btnTarefaDeterminada.Enabled = true;
-            //btnTarefaIndeterminada.Enabled = true;
         }
+
+
 
         private void pgProgresso_Click(object sender, EventArgs e)
         {
@@ -237,7 +186,13 @@ namespace eventOriented
 
         private void btnProcessar_Click(object sender, EventArgs e)
         {
-
+            if (!backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            } else
+            {
+                MessageBox.Show("Thread ja em execução");
+            }
         }
 
         private void flowLayoutPanel4_Paint(object sender, PaintEventArgs e)
@@ -302,7 +257,14 @@ namespace eventOriented
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            if (backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.CancelAsync();
+            }
+            else
+            {
+                MessageBox.Show("ta doido");
+            }
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
@@ -340,7 +302,12 @@ namespace eventOriented
 
         }
 
+        //
+
         //ex3
+
+        private string FileName = "";
+        private List<string> FileContent;
 
         private void InvokeTextFIle(object sender, EventArgs e)
         {
@@ -350,16 +317,152 @@ namespace eventOriented
                 {
                     using (StreamReader st = new StreamReader(f.FileName))
                     {
+                        List<string> l = new List<string>();
+                        string line = "";
+                        while((line = st.ReadLine()) != null)
+                        {
+                            l.Add(line);
+                        }
 
+                        FileContent = l;
+
+                        FileName = f.FileName.ToString(); 
+                        lbFileName.Text = FileName;
+
+                        btnAnalisar.Enabled = true;
+
+                        //lbFileName.Text = FileText;
                     }
                 }
+                else
+                {
+                    FileName = "<Nenhum Arquivo Selecionado>";
+                    MessageBox.Show(FileName);
+                }
             }
+        }
+
+        private void ProcessFileData(object sender, EventArgs e)
+        {
+            //sampleRichTestBox.Text = FileContent;
+
+            string st = String.Concat(FileContent.ToArray());
+
+            string[] Words = st.Split(' ');
+
+
+            LetterLabel.Text = letterCount(st);
+            NumLabel.Text = numberCount(st);
+            SpacesLabel.Text = spaceCount(st);
+            LinesLabel.Text = lineCount(FileContent);
+            CharLabel.Text = charCount(st);
+            WordsLabel.Text = wordCount(Words);
+            ThreeLettersWordsLabel.Text = threeLetterWordCount(Words);
+            BiggestWordLabel.Text = biggestWord(Words);
+        }
+
+        private string letterCount(string st)
+        {
+            return Regex.Matches(st, @"[A-Za-z]").Count.ToString();
+        }
+
+        private string numberCount(string st)
+        {
+            return Regex.Matches(st, @"[0-9]").Count.ToString();
+        }
+
+        private string spaceCount(string st)
+        {
+            int spcctr = 0;
+            string str1;
+            for (int i = 0; i < st.Length; i++)
+            {
+                str1 = st.Substring(i, 1);
+                if (str1 == " ")
+                    spcctr++;
+            }
+            return spcctr.ToString();
+        }
+
+        private string lineCount(List<string> st)
+        {
+            return st.Count.ToString();
+        }
+
+        private string charCount(string st)
+        {
+            return Regex.Matches(st, @"[^-]").Count.ToString();
+        }
+
+        private string wordCount(string [] st)
+        {
+            return st.Length.ToString();
+        }
+
+        private string threeLetterWordCount(string [] st)
+        {
+            List<string> results = new List<string>();
+
+            foreach(string i in st)
+            {
+                if(i.Length == 3)
+                {
+                    results.Add(i);
+                }
+            }
+
+            return results.Count.ToString();
+        }
+
+        private string biggestWord(string [] st)
+        {
+
+            string temp = "";
+            foreach(string i in st)
+            {
+                if (i.Length > temp.Length)
+                {
+                    if (i.Length== temp.Length)
+                    {
+                        if(i.CompareTo(temp) == 1)
+                        {
+                            temp = i;
+                        }
+                        else
+                        if(i.CompareTo(temp) == -1)
+                        {
+                            temp = temp;
+                        }
+                        else
+                        if(i.CompareTo(temp) == 0)
+                        {
+                            temp = temp;
+                        }
+                    }
+
+                    temp = i;
+                }
+            }
+
+            return temp;
         }
 
         private void label5_Click_3(object sender, EventArgs e)
         {
 
         }
+
+        private void lbFileName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+ 
 
         //
     }
