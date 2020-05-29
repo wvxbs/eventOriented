@@ -330,13 +330,12 @@ namespace eventOriented
                         lbFileName.Text = FileName;
 
                         btnAnalisar.Enabled = true;
-
-                        //lbFileName.Text = FileText;
                     }
                 }
                 else
                 {
                     FileName = "<Nenhum Arquivo Selecionado>";
+                    lbFileName.Text = FileName;
                     MessageBox.Show(FileName);
                 }
             }
@@ -344,7 +343,6 @@ namespace eventOriented
 
         private void ProcessFileData(object sender, EventArgs e)
         {
-            //sampleRichTestBox.Text = FileContent;
 
             string st = String.Concat(FileContent.ToArray());
 
